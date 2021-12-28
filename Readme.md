@@ -29,7 +29,7 @@ Hardware
 Software
 - [Mopidy](https://mopidy.com/)
 - Spotify 
-- Pip and some Python libs (see requirments.txt)
+- Pip and some Python libs (see [requirments.txt](https://github.com/matana/kasimir-player/blob/main/requirements.txt))
 
 ### Installing RPi OS
 
