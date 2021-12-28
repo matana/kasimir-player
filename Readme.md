@@ -73,7 +73,7 @@ ssh pi@raspberrypi
 pi@raspberrypi:~ $ sudo passwd pi # change password after login
 ```
 
-While you are on your RPi machine, think about doing a system update ;) .
+While you are on your RPi machine, think about doing a system update ;)
 ```bash
 sudo apt update && sudo apt upgrade
 ```
@@ -96,7 +96,9 @@ The interface can be activated via the GUI. To invoke the GUI enter the followin
 ```bash
 sudo raspi-config # enable spi interface
 ```
-# img_spi_config
+![img_spi1](https://github.com/matana/kasimir-player/blob/main/docs/img_spi1.png)
+![img_spi2](https://github.com/matana/kasimir-player/blob/main/docs/img_spi2.png)
+![img_spi3](https://github.com/matana/kasimir-player/blob/main/docs/img_spi3.png)
 
 Finally reboot the RPi. 
 ```bash
@@ -125,7 +127,7 @@ Check that the SPI is enabled with `lsmod` (see man page [here](https://man7.org
 lsmod | grep spi_
 ```
 
-# img_lsmod
+![img_lsmod](https://github.com/matana/kasimir-player/blob/main/docs/img_lsmod.png)
 
 ## Installing Mopidy
 
@@ -188,11 +190,11 @@ sudo systemctl start kasimir.service
 
 You can use `systemctl` commands interact with the services. [Here](https://man7.org/linux/man-pages/man1/systemctl.1.html#COMMANDS) you'll find an overview of all *systemctl* comands. The command `sudo systemctl status kasimir.service` for example can be used to query the status of the service.
 
-# img_systemctl
+![img_systemctl](https://github.com/matana/kasimir-player/blob/main/docs/img_systemctl.png)
 
 With `journalctl -u kasimir.service -r` can be used to read the logs in reversed time order. The most recent log entrie will be on top. [Here](https://man7.org/linux/man-pages/man1/journalctl.1.html#COMMANDS) you'll find an overview of all *journalctl* comands.
 
-# img_journalctl
+![img_journalctl](https://github.com/matana/kasimir-player/blob/main/docs/img_journalctl.png)
 
 
 ## RFID Card Reader (RC522)
@@ -201,7 +203,7 @@ To read and write RFID cards I used the project [pi-rc522](https://github.com/on
 
 The command `pinout` will show the 40 pins in the terminal on your RPi. Have also a look [here](https://pinout.xyz/#). With  Pthon module RPi.GPIO you can control Raspberry Pi GPIO channels.
 
-# img_pinout
+![img_pinout](https://github.com/matana/kasimir-player/blob/main/docs/img_pinout.png)
 
 Connecting the RC522 module to the RPi's SPI (Serial Peripheral Interface).
 
@@ -273,7 +275,7 @@ sudo shutdown -r now
 sudo reboot
 ``` 
 
-### Refernces
+## Refernces
 - Raspberry Pi Imager - https://www.raspberrypi.com/software/  
 - GPIO and the 40-pin Header - https://www.raspberrypi.com/documentation/computers/os.html#gpio-and-the-40-pin-header
 - Setup WiFi on Raspberry Pi -  https://pi-buch.info/wlan-schon-vor-der-installation-konfigurieren/
