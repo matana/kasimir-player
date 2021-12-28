@@ -8,7 +8,7 @@ import logging
 # LOGGER
 #############################################################################################
 # create logger
-logger = logging.getLogger("Kasmimir Player")
+logger = logging.getLogger("Kasimir's Player")
 
 # create console handler and set level to debug
 ch = logging.StreamHandler()
