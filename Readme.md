@@ -241,7 +241,7 @@ The link to the playlist can be obtained via the Spotify app. Go to the desired 
 
 You will need to extract the ID form URL path `https://.../playlist/<spotify_playlist_id>`. As soon as the complete string is available in the input, press enter. Now you will be asked to hold the card to the RFID interface and wait until the data transfer is completed. As soon as you see the message `Done :)` you can remove the card. If an error occurs, repeat the procedure. In the future the Spotify URL should be stored completely. 
 
-## Rotary Encoder (KY-040) aka Volume Controll
+## Rotary Encoder (KY-040) aka Volume Control
 
 The volume is controlled via a rotary knob. The implementation for this can be found in module `src/rotary_encoder.py`. Turning the knob clockwise increases the volume. Turning the knob counterclockwise decreases the volume. The volume range is between 0 and 100. The minimum volume is 10 and the maximum 90. The volume is currently increased/decreased in steps of 3. The setting can be changed in the module `src/player.Volume`. Default volumne on start up is 10. 
 
