@@ -2,6 +2,10 @@
 
 Kasmirs Player is a jukebox project for Raspberrypi beginners, who always wanted to program a hardware interface besides the software. 
 
+Front            |  Back | (Rainbow) Inside
+:-------------------------:|:-------------------------: | :-------------------------: 
+![front](https://github.com/matana/kasimir-player/blob/main/docs/110C61D7-EDF1-424E-B1D0-1914034A8859_1_105_c.jpeg)  | ![back](https://github.com/matana/kasimir-player/blob/main/docs/E95F60C3-83EF-4FC7-81CE-0B23D4A58033_1_105_c.jpeg) | ![inside](https://github.com/matana/kasimir-player/blob/main/docs/8DE36A21-5BB5-4559-824A-C8C022ADC503_1_105_c.jpeg)
+
 ## Legend
 - [Requirements](#requirements)
 - [Installing RPi OS](#installing-rpi-os)
@@ -199,6 +203,8 @@ With `journalctl -u kasimir.service -r` can be used to read the logs in reversed
 
 ## RFID Card Reader (RC522)
 
+![588FD058-5235-4D36-ADF8-C0F35E8CD252_1_105_c.jpeg](https://github.com/matana/kasimir-player/blob/main/docs/588FD058-5235-4D36-ADF8-C0F35E8CD252_1_105_c.jpeg)
+
 To read and write RFID cards I used the project [pi-rc522](https://github.com/ondryaso/pi-rc522). It is relatively complicated to get into the world of bitshifts and low level programming. Nevertheless it is worth to have a look at it. 
 
 The command `pinout` will show the 40 pins in the terminal on your RPi. Have also a look [here](https://pinout.xyz/#). With  Pthon module RPi.GPIO you can control Raspberry Pi GPIO channels.
@@ -242,6 +248,8 @@ The link to the playlist can be obtained via the Spotify app. Go to the desired 
 You will need to extract the ID form URL path `https://.../playlist/<spotify_playlist_id>`. As soon as the complete string is available in the input, press enter. Now you will be asked to hold the card to the RFID interface and wait until the data transfer is completed. As soon as you see the message `Done :)` you can remove the card. If an error occurs, repeat the procedure. In the future the Spotify URL should be stored completely. 
 
 ## Rotary Encoder (KY-040) aka Volume Control
+
+![6AE92102-9976-4774-B130-71444C3446FF_1_105_c.jpeg)](https://github.com/matana/kasimir-player/blob/main/docs/6AE92102-9976-4774-B130-71444C3446FF_1_105_c.jpeg)
 
 The volume is controlled via a rotary knob. The implementation for this can be found in module `src/rotary_encoder.py`. Turning the knob clockwise increases the volume. Turning the knob counterclockwise decreases the volume. The volume range is between 0 and 100. The minimum volume is 10 and the maximum 90. The volume is currently increased/decreased in steps of 3. The setting can be changed in the module `src/player.Volume`. Default volumne on start up is 10. 
 
