@@ -19,7 +19,7 @@ Front            |  Back | (Rainbow) Inside
 - [RFID Card Reader (RC522)](#rfid-card-reader-rc522)
   - [Read / Write Data Blocks from / to RFID Card](#read--write-data-blocks-from--to-rfid-card)
 - [Add a Spotify Playlist ID to the RFID Card](#add-a-spotify-playlist-id-to-the-rfid-card)
-- [Rotary Encoder (KY-040) aka Volume Controll](#rotary-encoder-ky-040-aka-volume-control)
+- [Rotary Encoder (KY-040) aka Volume Control](#rotary-encoder-ky-040-aka-volume-control)
 - [Turn on / off RPi](#turn-on--off-rpi)
 - [Refernces](#refernces)
 
