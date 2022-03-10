@@ -65,6 +65,8 @@ network={
 }
 ```
 
+To unmount the device you can use the cmd tool `diskutil`. On Mac OS use `diskutil unmountDisk /dev/disk2` in terminal.
+
 ### Connecting to RPi via SSH
 Use the `ssh` command under unix/linux systems with *user@host* (the default is pi@raspberrypi) to connect to yout RPi. The default `ssh` password is *raspberry*. After first successful login, please
 change user, host and password (at minimum) and store it safely into you the password manager you trust.
