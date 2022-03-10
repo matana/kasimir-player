@@ -78,6 +78,7 @@ ssh pi@raspberrypi
 ...
 pi@raspberrypi:~ $ sudo passwd pi # change password after login
 ```
+Find [here](https://www.raspberrypi.com/documentation/computers/using_linux.html#linux-users) the how-to on managing users.
 
 While you are on your RPi machine, think about doing a system update ;)
 ```bash
