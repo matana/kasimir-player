@@ -89,6 +89,8 @@ You can also add a public key (id_rsa.pub) to the file .ssh/authorized_keys. Thi
 
 ## Installing pip
 
+If you have installed Rapberry Pi OS Lite (Debian Bullseye) you can skip this step, since it contains already Python 3.9.2 (see: https://packages.debian.org/bullseye/python3)
+
 ```bash
 sudo apt-get install python3-dev python3-pip
 pip3 install --upgrade pip
