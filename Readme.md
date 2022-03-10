@@ -78,7 +78,7 @@ ssh pi@raspberrypi
 ...
 pi@raspberrypi:~ $ sudo passwd pi # change password after login
 ```
-Find [here](https://www.raspberrypi.com/documentation/computers/using_linux.html#linux-users) the how-to on managing users.
+Find [here](https://www.raspberrypi.com/documentation/computers/using_linux.html#linux-users) the how-to on managing users. You could also change the default hostname `raspberry` with `$ sudo raspi-config > 1 System Options > S4 Hostname` and then restart the system `$ sudo shutdown -r now` or `$ sudo reboot`.  
 
 While you are on your RPi machine, think about doing a system update ;)
 ```bash
