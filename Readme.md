@@ -93,7 +93,7 @@ You can also add a public key (id_rsa.pub) to the file .ssh/authorized_keys. Thi
 If you have Rapberry Pi OS Lite (Debian Bullseye) installed the current Python version is 3.9.2 (see: https://packages.debian.org/bullseye/python3).
 
 ```bash
-$ sudo apt-get install python3-dev python3-pip -y
+$ sudo apt-get install python3-dev python3-pip libffi-dev -y
 $ pip3 install --upgrade pip
 ```
 ## Installing git
@@ -151,10 +151,10 @@ $ lsmod | grep spi_
 ```bash
 # Dependencies 
 # (1) https://github.com/mopidy/mopidy-spotify#dependencies
-$ sudo apt install libspotify libspotify-dev
+$ sudo apt install libspotify libspotify-dev # !packages not located in bullseyes repo
 
 # (2) https://pyspotify.readthedocs.io/en/latest/installation/
-$ pip install pyspotify 
+$ pip3 install pyspotify 
 
 # (3) https://github.com/mopidy/mopidy-spotify#installation
 sudo python3 -m pip install Mopidy-Spotify
