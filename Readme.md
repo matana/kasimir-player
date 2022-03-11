@@ -144,7 +144,7 @@ $ lsmod | grep spi_
 
 ![img_lsmod](https://github.com/matana/kasimir-player/blob/main/docs/img_lsmod.png)
 
-## Installing Mopidy
+## Installing Mopidy and Spotify extension
 
 [Here](https://docs.mopidy.com/en/latest/installation/) you can find the Mopidy installation instructions for various operating systems.
 ```bash
@@ -163,7 +163,8 @@ $ sudo python3 -m pip install Mopidy-Spotify
 You can get the API credentials to your Spotify account and find as well  the installation instructions [here](https://mopidy.com/ext/spotify/). A Spotify Premium subscription is required. 
 
 ```bash
-nano ~/.config/mopidy/mopidy.conf
+$ touch ~/.config/mopidy/mopidy.conf \
+&& nano ~/.config/mopidy/mopidy.conf
 
 [spotify]
 enabled = true
