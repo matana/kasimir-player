@@ -147,17 +147,16 @@ $ lsmod | grep spi_
 ## Installing Mopidy
 
 [Here](https://docs.mopidy.com/en/latest/installation/) you can find the Mopidy installation instructions for various operating systems.
-
 ```bash
-# Dependencies 
-# (1) https://github.com/mopidy/mopidy-spotify#dependencies
-$ sudo apt install libspotify libspotify-dev # !packages not located in bullseyes repo
-
-# (2) https://pyspotify.readthedocs.io/en/latest/installation/
-$ pip3 install pyspotify 
-
-# (3) https://github.com/mopidy/mopidy-spotify#installation
-sudo python3 -m pip install Mopidy-Spotify
+$ wget -q -O - https://apt.mopidy.com/mopidy.gpg | sudo apt-key add - \
+&& sudo wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/buster.list \
+&& sudo apt update \
+&& sudo apt install mopidy -y
+```
+Installing also Mopidy extension for playing music from Spotify (see: https://github.com/mopidy/mopidy-spotify#installation).
+```bash
+$ sudo apt install libspotify-dev
+$ sudo python3 -m pip install Mopidy-Spotify
 ```
 
 ### Setup Spotify Configuration in Mopidy 
