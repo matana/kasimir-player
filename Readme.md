@@ -178,7 +178,7 @@ allow_playlists = true
 To communicate with the Mopidy server we use [MPD](https://docs.mopidy.com/en/latest/clients/#mpd-clients) (Music Player Daemon) and this in turn is accessed by `mpc` ([a command line client for MPD](https://www.musicpd.org/clients/). Version 0.19 and upwards seems to work nicely with Mopidy.). 
 
 ```bash
-sudo apt-get install mpd mpc alsa-utils
+$ sudo apt-get install mpd mpc alsa-utils -y
 ```
 ## Setup Services as Deamons
 
