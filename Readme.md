@@ -74,7 +74,7 @@ change user, host and password (at minimum) and store it safely into you the pas
 > NOTE: You won't be able to connect to your RPi ending up in a `ssh: connect to host raspberrypi port 22: Operation timed out`. The reason is quite simple: Your RPi has neither a (public) static IP adress, nor a DNS record poiting to the machine. Therfore you have to adjust additional secuity settings in your wifi router/network to permit other wifi devices to communicate with each other. (see configuration for [FRITZ!Box](https://en.avm.de/service/knowledge-base/dok/FRITZ-Box-7490/549_Shared-files-and-printers-on-a-computer-are-not-visible-in-home-network/))
 
 ```bash
-ssh pi@raspberrypi 
+$ ssh pi@raspberrypi 
 ...
 pi@raspberrypi:~ $ sudo passwd pi # change password after login
 ```
@@ -82,7 +82,7 @@ Find [here](https://www.raspberrypi.com/documentation/computers/using_linux.html
 
 While you are on your RPi machine, think about doing a system update ;)
 ```bash
-sudo apt update && sudo apt upgrade
+$ sudo apt update -y && sudo apt upgrade -y
 ```
 
 You can also add a public key (id_rsa.pub) to the file .ssh/authorized_keys. This also gives you the possibility to log in via `ssh -i ~/.ssh/id_rsa user@host`. To generate a public/private rsa key pair on you local machine use `ssh-keygen`. Use `touch ~/.ssh/authorized_keys` to create the file for authorized keys on RPi (server) and add either manually the id_rsa.pub key into (copy/paste) *.ssh/authorized_keys* or via command `ssh-copy-id`. 
@@ -92,18 +92,22 @@ You can also add a public key (id_rsa.pub) to the file .ssh/authorized_keys. Thi
 If you have Rapberry Pi OS Lite (Debian Bullseye) installed the current Python version is 3.9.2 (see: https://packages.debian.org/bullseye/python3).
 
 ```bash
-sudo apt-get install python3-dev python3-pip
-pip3 install --upgrade pip
+$ sudo apt-get install python3-dev python3-pip -y
+$ pip3 install --upgrade pip
 ```
+## Installing git
+```bash
+$ sudo apt-get install git -y
+``` 
 
 ## Enabling SPI on Raspberry Pi
 
-`sudo pip3 install spidev (already installed)`
+`$ sudo pip3 install spidev # (already installed)`
 
 The interface can be activated via the GUI. To invoke the GUI enter the following command.
 
 ```bash
-sudo raspi-config # enable spi interface
+$ sudo raspi-config # enable spi interface
 ```
 ![img_spi1](https://github.com/matana/kasimir-player/blob/main/docs/img_spi1.png)
 ![img_spi2](https://github.com/matana/kasimir-player/blob/main/docs/img_spi2.png)
@@ -111,13 +115,13 @@ sudo raspi-config # enable spi interface
 
 Finally reboot the RPi. 
 ```bash
-sudo reboot
+$ sudo reboot
 ```
 
 Alternatively, SPI can be enabled via a modification to a system file. The following configuration must be made for this.
 
 ```bash
-sudo nano /boot/config.txt
+$ sudo nano /boot/config.txt
 ```
 
 Add the following line at the bottom or if it's commented uncomment the corosponding line and save the changes on exit with `CTRL-X`, then `Y`, and finally `RETURN`.
@@ -128,12 +132,12 @@ dtparam=spi=on
 
 Reboot the machine using the following comannd.
 ```bash
-sudo reboot
+$ sudo reboot
 ```
 
 Check that the SPI is enabled with `lsmod` (see man page [here](https://man7.org/linux/man-pages/man8/lsmod.8.html)).
 ```
-lsmod | grep spi_
+$ lsmod | grep spi_
 ```
 
 ![img_lsmod](https://github.com/matana/kasimir-player/blob/main/docs/img_lsmod.png)
@@ -145,10 +149,10 @@ lsmod | grep spi_
 ```bash
 # Dependencies 
 # (1) https://github.com/mopidy/mopidy-spotify#dependencies
-sudo apt install libspotify libspotify-dev
+$ sudo apt install libspotify libspotify-dev
 
 # (2) https://pyspotify.readthedocs.io/en/latest/installation/
-pip install pyspotify 
+$ pip install pyspotify 
 
 # (3) https://github.com/mopidy/mopidy-spotify#installation
 sudo python3 -m pip install Mopidy-Spotify
