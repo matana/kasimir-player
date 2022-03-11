@@ -45,16 +45,17 @@ Install Raspberry Pi OS using Raspberry Pi Imager which can be downloaded [here]
 Create files [wpa_supplicant.conf](https://www.daemon-systems.org/man/wpa_supplicant.conf.5.html) and ssh in Boot-Partition (Raspbian Stretch) via terminal.
 
 ```bash
-cd /Volumes/boot
-touch ssh 
-touch wpa_supplicant.conf
+$ cd /Volumes/boot
+$ touch ssh 
+$ touch wpa_supplicant.conf
 ```
 
 The configuration can be copied from below and only needs to be supplemented with the name of the wifi network and the wifi password.
 
 ```bash
-nano wpa_supplicant.conf
+$ nano wpa_supplicant.conf
 
+# paste this config into wpa_supplicant.conf and replace WIFI_* placeholders 
 country=DE
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
@@ -98,6 +99,7 @@ $ pip3 install --upgrade pip
 ## Installing git
 ```bash
 $ sudo apt-get install git -y
+$ git clone https://github.com/matana/kasimir-player.git
 ``` 
 
 ## Enabling SPI on Raspberry Pi
