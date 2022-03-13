@@ -26,7 +26,7 @@ Front            |  Back | (Rainbow) Inside
 
 ### Requirements
 Hardware
-- Raspberry Pi 4
+- Raspberry Pi 4 / Zero 2 W (wip)
 - Rc522 RFID Reader
 - Rotary Encoder Push button KY-040
 
