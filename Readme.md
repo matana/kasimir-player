@@ -151,12 +151,19 @@ $ lsmod | grep spi_
 $ wget -q -O - https://apt.mopidy.com/mopidy.gpg | sudo apt-key add - \
 && sudo wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/buster.list \
 && sudo apt update \
-&& sudo apt install mopidy -y
+&& sudo apt install mopidy alsa-utils -y
 ```
 Installing also Mopidy extension for playing music from Spotify (see: https://github.com/mopidy/mopidy-spotify#installation).
 ```bash
 $ sudo apt install libspotify-dev
 $ sudo python3 -m pip install Mopidy-Spotify
+```
+
+To communicate with the Mopidy server we use [MPD](https://docs.mopidy.com/en/latest/clients/#mpd-clients) (Music Player Daemon) and this in turn is accessed by `mpc` ([a command line client for MPD](https://www.musicpd.org/clients/). Version >=0.19 seems to work nicely with Mopidy.). 
+
+```bash
+$ sudo apt-get install mpc -y
+$ sudo python3 -m pip install Mopidy-MPD
 ```
 
 ### Setup Spotify Configuration in Mopidy 
@@ -175,12 +182,6 @@ client_secret = CLIENT_SECRET
 allow_playlists = true
 ```
 
-To communicate with the Mopidy server we use [MPD](https://docs.mopidy.com/en/latest/clients/#mpd-clients) (Music Player Daemon) and this in turn is accessed by `mpc` ([a command line client for MPD](https://www.musicpd.org/clients/). Version 0.19 and upwards seems to work nicely with Mopidy.). 
-
-```bash
-$ #sudo apt-get install mpd mpc alsa-utils -y #not working! 
-$ sudo python3 -m pip install Mopidy-MPD
-```
 ## Setup Services as Deamons
 
 Upload the service configuration file to the RPi...
