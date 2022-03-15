@@ -110,8 +110,10 @@ $ git clone https://github.com/matana/kasimir-player.git
 
 ## Enabling SPI on Raspberry Pi
 
-To use the SPI ([Serial Peripheral Interface](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface))  programmatically we have to install the `spidev` library `$ sudo pip3 install spidev`.
-
+To use the SPI ([Serial Peripheral Interface](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface))  programmatically we have to install the `spidev` library. 
+```bash
+$ sudo pip3 install spidev
+```
 The interface can be activated via the GUI. To invoke the GUI enter the following command.
 
 ```bash
