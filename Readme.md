@@ -48,7 +48,7 @@ Since version 1.6 of the Raspberry Pi Imager you can use the advanced options to
 <img src="https://github.com/matana/kasimir-player/blob/main/docs/img_rpi_imger2.png" width="50%" height="50%">
 </p>  
 
-Create files [wpa_supplicant.conf](https://www.daemon-systems.org/man/wpa_supplicant.conf.5.html) and ssh in Boot-Partition (Raspbian Stretch) via terminal.
+For all bash ninjas and those who want to become one, here are the commands... Create files [wpa_supplicant.conf](https://www.daemon-systems.org/man/wpa_supplicant.conf.5.html) and ssh in Boot-Partition (Raspbian Stretch) via terminal.
 
 ```bash
 $ cd /Volumes/boot
