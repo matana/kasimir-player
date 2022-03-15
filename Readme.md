@@ -89,7 +89,7 @@ Find [here](https://www.raspberrypi.com/documentation/computers/using_linux.html
 
 While you are on your RPi machine, think about doing a system update ;)
 ```bash
-$ sudo apt update -y && sudo apt upgrade -y
+$ sudo apt update && sudo apt upgrade -y
 ```
 
 You can also add a public key (id_rsa.pub) to the file .ssh/authorized_keys. This also gives you the possibility to log in via `ssh -i ~/.ssh/id_rsa user@host`. To generate a public/private rsa key pair on you local machine use `ssh-keygen`. Use `touch ~/.ssh/authorized_keys` to create the file for authorized keys on RPi (server) and add either manually the id_rsa.pub key into (copy/paste) *.ssh/authorized_keys* or via command `ssh-copy-id`. 
