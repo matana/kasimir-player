@@ -46,7 +46,8 @@ Install Raspberry Pi OS using Raspberry Pi Imager which can be downloaded [here]
 Since version 1.6 of the Raspberry Pi Imager you can use the advanced options to setup the hostname, ssh, user, wifi and language settings before flushing the sd card. The configuration can be activated by pressing `CTRL + SHIFT + X`, but since v1.7.1 the advanced options button is displayed in the main ui.
 <p align="left">
 <img src="https://github.com/matana/kasimir-player/blob/main/docs/img_rpi_imger2.png" width="50%" height="50%">
-</p>
+</p>  
+
 Create files [wpa_supplicant.conf](https://www.daemon-systems.org/man/wpa_supplicant.conf.5.html) and ssh in Boot-Partition (Raspbian Stretch) via terminal.
 
 ```bash
