@@ -37,13 +37,13 @@ Software
 
 ### Installing RPi OS
 
-Install Raspberry Pi OS using Raspberry Pi Imager which can be downloaded [here](https://www.raspberrypi.com/software/). We want to install the headless version of the RPi os (Raspberry Pi OS Lite) for performance reasons, since we don't need a monitor for the application. Besides the lower memory requirement, an additional advantage is the faster startup of the machine. Details of how to install the RPi os can be found [here](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system).
+Install Raspberry Pi OS using Raspberry Pi Imager which can be downloaded [here](https://www.raspberrypi.com/software/). We want to install the headless version of the RPi os (Raspberry Pi OS Lite) for performance reasons, since we don't need a monitor for the application. Besides the lower memory requirement, an additional advantage is the faster startup of the machine. Details of how to install the RPi os can be found [here](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system). Note: The setup steps especially the bash commands are intended for the terminal (Mac OS), but can also be used on other Unix/Linux systems (slightly modified). 
 
 
 ### Setup WiFi and SSH on Raspberry Pi
 
 #### tl;dr
-Since version 1.6 of the Raspberry Pi Imager you can use the advanced options to setup the hostname, ssh, user, wifi and language settings before flushing the sd card. The configuration can be activated by pressing `CTRL + SHIFT + X`, but since v1.7.1 the advanced options button is displayed in the main ui.
+Since version 1.6 of the Raspberry Pi Imager you can use the advanced options to setup the hostname, ssh, user, wifi and language settings before flushing the sd card. The configuration can be activated by pressing `CTRL + SHIFT + X`, but since v1.7.1 the advanced options button is displayed after selecting a OS in the main ui.
 <p align="left">
 <img src="https://github.com/matana/kasimir-player/blob/main/docs/img_rpi_imger2.png" width="50%" height="50%">
 </p>  
@@ -72,7 +72,7 @@ network={
 }
 ```
 
-To unmount the device you can use the cmd tool `diskutil`. On Mac OS use `diskutil unmountDisk /dev/disk2` in terminal.
+To unmount the device you can use the cmd tool `diskutil`. On Mac OS use `diskutil unmountDisk /dev/disk2` in terminal. The SD card is ready and can now be inserted into the PI.
 
 ### Connecting to RPi via SSH
 Use the `ssh` command under unix/linux systems with *user@host* (the default is pi@raspberrypi) to connect to yout RPi. The default `ssh` password is *raspberry*. After first successful login, please
@@ -110,7 +110,7 @@ $ git clone https://github.com/matana/kasimir-player.git
 
 ## Enabling SPI on Raspberry Pi
 
-`$ sudo pip3 install spidev # (already installed)`
+To use the SPI ([Serial Peripheral Interface](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface))  programmatically we have to install the `spidev` library `$ sudo pip3 install spidev`.
 
 The interface can be activated via the GUI. To invoke the GUI enter the following command.
 
