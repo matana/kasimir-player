@@ -26,7 +26,7 @@ git \
 mpc \
 mopidy \
 alsa-utils \
-libspotify- \
+libspotify-dev \
 -y
 
 echo "install all apt dependencies ... DONE"
