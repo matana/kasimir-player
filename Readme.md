@@ -188,7 +188,7 @@ allow_playlists = true
 
 ## Setup Services as Deamons
 
-Upload the service configuration files from your client to the RPi via `scp`, if you not already cloned the repository into your RPi's home dir...
+Upload the [service configuration files](https://github.com/matana/kasimir-player/tree/main/services) from your client to the RPi via `scp`, if you not already cloned the repository into your RPi's home dir...
 
 ```bash
 $ scp -i ~/.ssh/id_rsa mopidyd.service pi@raspberrypi:/home/pi
