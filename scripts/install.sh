@@ -89,6 +89,8 @@ After=network-online.target
 
 [Service]
 Type=simple
+User=${USER}
+Group=${USER}
 ExecStart=/usr/bin/mopidy --config ~/.config/mopidy/mopidy.conf
 SyslogIdentifier=mopidyService
 StandardOutput=syslog
@@ -116,6 +118,9 @@ After=network-online.target mopidyd.service
 
 [Service]
 Type=simple
+User=${USER}
+Group=${USER}
+WorkingDirectory=/home/${USER}
 ExecStart=/home/${USER}/kasimir-player/src/player.py
 SyslogIdentifier=kasimirPlayer
 StandardOutput=syslog
