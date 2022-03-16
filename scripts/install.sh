@@ -112,7 +112,7 @@ sudo chown $USER:$USER /etc/systemd/system/mopidyd.service
 echo "setup mopidyd.service ... DONE"
 fi
 
-if [[ ! -f /etc/systemd/system/mopidyd.service ]]
+if [[ ! -f /etc/systemd/system/kasimir.service ]]
 then
 sudo touch /etc/systemd/system/kasimir.service
 sudo chmod 777 /etc/systemd/system/kasimir.service
