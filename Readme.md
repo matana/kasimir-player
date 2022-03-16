@@ -26,7 +26,7 @@ Front            |  Back | (Rainbow) Inside
 
 ### Requirements
 Hardware
-- Raspberry Pi 4 / Zero 2 W (wip)
+- Raspberry Pi 4 / Zero 2 W
 - Rc522 RFID Reader
 - Rotary Encoder Push button KY-040
 
@@ -38,7 +38,6 @@ Software
 ### Installing RPi OS
 
 Install Raspberry Pi OS using Raspberry Pi Imager which can be downloaded [here](https://www.raspberrypi.com/software/). We want to install the headless version of the RPi os (Raspberry Pi OS Lite) for performance reasons, since we don't need a monitor for the application. Besides the lower memory requirement, an additional advantage is the faster startup of the machine. Details of how to install the RPi os can be found [here](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system). Note: The setup steps especially the bash commands are intended for the terminal (Mac OS), but can also be used on other Unix/Linux systems (slightly modified). 
-
 
 ### Setup WiFi and SSH on Raspberry Pi
 
@@ -123,11 +122,6 @@ $ sudo raspi-config # enable spi interface
 ![img_spi2](https://github.com/matana/kasimir-player/blob/main/docs/img_spi2.png)
 ![img_spi3](https://github.com/matana/kasimir-player/blob/main/docs/img_spi3.png)
 
-Finally reboot the RPi. 
-```bash
-$ sudo reboot
-```
-
 Alternatively, SPI can be enabled via a modification to a system file. The following configuration must be made for this.
 
 ```bash
@@ -140,7 +134,7 @@ Add the following line at the bottom or if it's commented uncomment the corospon
 dtparam=spi=on
 ```
 
-Reboot the machine using the following comannd.
+Finally reboot the RPi. 
 ```bash
 $ sudo reboot
 ```
@@ -165,22 +159,23 @@ $ sudo apt install mopidy alsa-utils libspotify-dev -y
 ```
 Installing also Mopidy extension for playing music from Spotify (see: https://github.com/mopidy/mopidy-spotify#installation).
 ```bash
-$ sudo pip3 install Mopidy-Spotify
+$ pip3 install Mopidy-Spotify
 ```
 
 To communicate with the Mopidy server we use [MPD](https://docs.mopidy.com/en/latest/clients/#mpd-clients) (Music Player Daemon) and this in turn is accessed by `mpc` ([a command line client for MPD](https://www.musicpd.org/clients/). Version >=0.19 seems to work nicely with Mopidy.). 
 
 ```bash
 $ sudo apt-get install mpc -y
-$ sudo pip3 install Mopidy-MPD
+$ pip3 install Mopidy-MPD
 ```
 
 ### Setup Spotify Configuration in Mopidy 
 You can get the API credentials to your Spotify account and find as well  the installation instructions [here](https://mopidy.com/ext/spotify/). A Spotify Premium subscription is required. 
 
-```bash
-$ touch ~/.config/mopidy/mopidy.conf \
-&& nano ~/.config/mopidy/mopidy.conf
+```bash 
+$ mkdir -p ~/.config/mopidy/
+$ touch ~/.config/mopidy/mopidy.conf
+$ nano ~/.config/mopidy/mopidy.conf
 
 [spotify]
 enabled = true
@@ -193,25 +188,29 @@ allow_playlists = true
 
 ## Setup Services as Deamons
 
-Upload the service configuration file to the RPi...
+Upload the service configuration files from your client to the RPi via `scp`, if you not already cloned the repository into your RPi's home dir...
 
 ```bash
-scp -i ~/.ssh/id_rsa mopidyd.service pi@raspberrypi:/home/pi
-scp -i ~/.ssh/id_rsa kasimir.service pi@raspberrypi:/home/pi
+$ scp -i ~/.ssh/id_rsa mopidyd.service pi@raspberrypi:/home/pi
+$ scp -i ~/.ssh/id_rsa kasimir.service pi@raspberrypi:/home/pi
 ```
 ... and move them into *systemd* services folder `/etc/systemd/system/`.
 
 ```bash
-sudo mv mopidyd.service /etc/systemd/system/
-sudo mv kasimir.service /etc/systemd/system/
+$ sudo mv mopidyd.service /etc/systemd/system/
+$ sudo mv kasimir.service /etc/systemd/system/
 ```
-Finally enable the services. 
+Adjust the owner and group if set to `root` and enable the services. 
 
 ```bash
-sudo systemctl enable mopidyd.service
-sudo systemctl start mopidyd.service
-sudo systemctl enable kasimir.service
-sudo systemctl start kasimir.service
+$ sudo chown pi:pi /etc/systemd/system/mopidyd.service
+$ sudo chown pi:pi /etc/systemd/system/kasimir.service
+
+$ sudo systemctl enable mopidyd.service
+$ sudo systemctl enable kasimir.service
+
+$ sudo systemctl start mopidyd.service
+$ sudo systemctl start kasimir.service
 ```
 
 You can use `systemctl` commands interact with the services. [Here](https://man7.org/linux/man-pages/man1/systemctl.1.html#COMMANDS) you'll find an overview of all *systemctl* comands. The command `sudo systemctl status kasimir.service` for example can be used to query the status of the service.
@@ -245,7 +244,6 @@ Connecting the RC522 module to the RPi's SPI (Serial Peripheral Interface).
 | GND            | 6, 9, 20, 25     | Ground                | 
 | RST            | 22               | GPIO25                | 
 | 3.3V           | 1,17             | 3V3                   |
-
 
 
 ### Read / Write Data Blocks from / to RFID Card
@@ -294,15 +292,15 @@ If the Raspberry Pi is completely shut down, you can see that only the red LED i
 
 ```bash
 # shutdown variations
-sudo shutdown
-sudo shutdown -h 0
-sudo shutdown -h now
-sudo poweroff
+$ sudo shutdown
+$ sudo shutdown -h 0
+$ sudo shutdown -h now
+$ sudo poweroff
 
 # reboot variations
-sudo shutdown -r 0
-sudo shutdown -r now
-sudo reboot
+$ sudo shutdown -r 0
+$ sudo shutdown -r now
+$ sudo reboot
 ``` 
 
 ## Refernces
