@@ -93,8 +93,6 @@ class Volume:
 
     def __apply(self, vol):
         os.system("mpc vol %s" % vol)
-        logger.info("changed vol to %s", vol)
-
 
 #############################################################################################
 # PLAYER
