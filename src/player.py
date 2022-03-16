@@ -93,6 +93,7 @@ class Volume:
 
     def __apply(self, vol):
         os.system("mpc vol %s" % vol)
+        logger.info("changed vol to %s", vol)
 
 
 #############################################################################################
@@ -119,8 +120,8 @@ class Player(SingletonMixin):
         Queue (fifo) for messages from callback `encoder_on_turn`.
         see: https://docs.python.org/3/library/queue.html
         """
-        self.__THREAD = Thread(target=self.vol_worker, daemon=True).start()
         self.__VOL = Volume(10)
+        self.__THREAD = Thread(target=self.vol_worker, daemon=True).start()
         self.__CURR_PLAYLIST = None
         self.__CONTROLLER = Controller
         self.__READER = RFIDWrapper()
