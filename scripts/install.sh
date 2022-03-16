@@ -3,7 +3,6 @@
 set +e
 
 # make mopidy source repository available in apt
-
 sudo mkdir -p /usr/local/share/keyrings
 
 sudo wget -q -O /usr/local/share/keyrings/mopidy-archive-keyring.gpg \
@@ -56,9 +55,10 @@ git clone https://github.com/matana/kasimir-player.git
 
 echo "clone kasimir player git repository ... DONE"
 
+if [[ ! -f ~/.config/mopidy/mopidy.conf ]]
+then
 mkdir -p ~/.config/mopidy
 touch ~/.config/mopidy/mopidy.conf
-
 
 read -p "Enter spotify username: " spotify_username
 read -p "Enter spotify password: " spotify_password
@@ -75,9 +75,12 @@ client_secret = ${spotify_client_secret}
 allow_playlists = true
 
 EOF
+fi
 
 echo "setup mopidy conf file ... DONE"
 
+if [[ ! -f /etc/systemd/system/mopidyd.service ]]
+then
 sudo touch /etc/systemd/system/mopidyd.service
 sudo chmod 777 /etc/systemd/system/mopidyd.service
 
@@ -107,7 +110,10 @@ sudo chmod 644 /etc/systemd/system/mopidyd.service
 sudo chown $USER:$USER /etc/systemd/system/mopidyd.service
 
 echo "setup mopidyd.service ... DONE"
+fi
 
+if [[ ! -f /etc/systemd/system/mopidyd.service ]]
+then
 sudo touch /etc/systemd/system/kasimir.service
 sudo chmod 777 /etc/systemd/system/kasimir.service
 
@@ -137,6 +143,7 @@ sudo chown $USER:$USER /etc/systemd/system/kasimir.service
 sudo chmod 644 /etc/systemd/system/kasimir.service
 
 echo "setup kasimir.service ... DONE"
+fi
 
 sudo systemctl enable mopidyd.service
 sudo systemctl enable kasimir.service
