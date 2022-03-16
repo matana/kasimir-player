@@ -156,21 +156,23 @@ $ lsmod | grep spi_
 
 [Here](https://docs.mopidy.com/en/latest/installation/) you can find the Mopidy installation instructions for various operating systems.
 ```bash
-$ wget -q -O - https://apt.mopidy.com/mopidy.gpg | sudo apt-key add - \
-&& sudo wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/buster.list \
-&& sudo apt update \
-&& sudo apt install mopidy alsa-utils libspotify-dev -y
+$ sudo mkdir -p /usr/local/share/keyrings
+$ sudo wget -q -O /usr/local/share/keyrings/mopidy-archive-keyring.gpg \
+  https://apt.mopidy.com/mopidy.gpg
+$ sudo wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/buster.list
+$ sudo apt update
+$ sudo apt install mopidy alsa-utils libspotify-dev -y
 ```
 Installing also Mopidy extension for playing music from Spotify (see: https://github.com/mopidy/mopidy-spotify#installation).
 ```bash
-$ sudo python3 -m pip install Mopidy-Spotify
+$ sudo pip3 install Mopidy-Spotify
 ```
 
 To communicate with the Mopidy server we use [MPD](https://docs.mopidy.com/en/latest/clients/#mpd-clients) (Music Player Daemon) and this in turn is accessed by `mpc` ([a command line client for MPD](https://www.musicpd.org/clients/). Version >=0.19 seems to work nicely with Mopidy.). 
 
 ```bash
 $ sudo apt-get install mpc -y
-$ sudo python3 -m pip install Mopidy-MPD
+$ sudo pip3 install Mopidy-MPD
 ```
 
 ### Setup Spotify Configuration in Mopidy 
