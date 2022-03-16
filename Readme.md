@@ -13,7 +13,7 @@ Front            |  Back | (Rainbow) Inside
   - [Connecting to RPi via SSH](#connecting-to-rpi-via-ssh)
   - [Enabling SPI on Raspberry Pi](#enabling-spi-on-raspberry-pi)
 - [Installing pip](#installing-pip)
-- [Installing Mopidy](#installing-mopidy)
+- [Installing Mopidy and Spotify extension](#installing-mopidy-and-spotify-extension)
   - [Setup Spotify Configuration in Mopidy](#setup-spotify-configuration-in-mopidy)
 - [Setup Services as Deamons](#setup-services-as-deamons)
 - [RFID Card Reader (RC522)](#rfid-card-reader-rc522)
